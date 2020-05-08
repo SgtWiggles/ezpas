@@ -1,7 +1,7 @@
-package net.kqp.ezpas.block;
+package net.kqp.ezpas.block.pullerpipe;
 
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.kqp.ezpas.block.entity.PullerPipeBlockEntity;
+import net.kqp.ezpas.block.entity.pullerpipe.PullerPipeBlockEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;

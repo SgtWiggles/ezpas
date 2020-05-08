@@ -1,15 +1,17 @@
 package net.kqp.ezpas.init;
 
 import net.fabricmc.api.ModInitializer;
-import net.kqp.ezpas.block.DiamondPullerPipeBlock;
-import net.kqp.ezpas.block.EnderPullerPipeBlock;
-import net.kqp.ezpas.block.GoldPullerPipeBlock;
-import net.kqp.ezpas.block.IronPullerPipeBlock;
+import net.kqp.ezpas.block.pullerpipe.DiamondPullerPipeBlock;
+import net.kqp.ezpas.block.pullerpipe.EnderPullerPipeBlock;
+import net.kqp.ezpas.block.FilteredPipeBlock;
+import net.kqp.ezpas.block.pullerpipe.GoldPullerPipeBlock;
+import net.kqp.ezpas.block.pullerpipe.IronPullerPipeBlock;
 import net.kqp.ezpas.block.PipeBlock;
-import net.kqp.ezpas.block.entity.DiamondPullerPipeBlockEntity;
-import net.kqp.ezpas.block.entity.EnderPullerPipeBlockEntity;
-import net.kqp.ezpas.block.entity.GoldPullerPipeBlockEntity;
-import net.kqp.ezpas.block.entity.IronPullerPipeBlockEntity;
+import net.kqp.ezpas.block.entity.pullerpipe.DiamondPullerPipeBlockEntity;
+import net.kqp.ezpas.block.entity.pullerpipe.EnderPullerPipeBlockEntity;
+import net.kqp.ezpas.block.entity.FilteredPipeBlockEntity;
+import net.kqp.ezpas.block.entity.pullerpipe.GoldPullerPipeBlockEntity;
+import net.kqp.ezpas.block.entity.pullerpipe.IronPullerPipeBlockEntity;
 import net.kqp.ezpas.item.PipeProbeItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
@@ -30,6 +32,12 @@ public class Ezpas implements ModInitializer {
     public static final Block DIAMOND_PP = register("diamond_puller_pipe", new DiamondPullerPipeBlock());
     public static final Block ENDER_PP = register("ender_puller_pipe", new EnderPullerPipeBlock());
 
+    public static final Block PIPE = register("pipe", new PipeBlock());
+
+    public static final Block[] COLORED_PIPES = new Block[DyeColor.values().length];
+
+    public static final Block FILTERED_PIPE = register("filtered_pipe", new FilteredPipeBlock());
+
     public static BlockEntityType<IronPullerPipeBlockEntity> IRON_PP_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(ID, "iron_puller_pipe"),
             BlockEntityType.Builder.create(IronPullerPipeBlockEntity::new, IRON_PP).build(null));
 
@@ -42,9 +50,8 @@ public class Ezpas implements ModInitializer {
     public static BlockEntityType<EnderPullerPipeBlockEntity> ENDER_PP_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(ID, "ender_puller_pipe"),
             BlockEntityType.Builder.create(EnderPullerPipeBlockEntity::new, ENDER_PP).build(null));
 
-    public static final Block PIPE = register("pipe", new PipeBlock());
-
-    public static final Block[] COLORED_PIPES = new Block[DyeColor.values().length];
+    public static BlockEntityType<FilteredPipeBlockEntity> FILTERED_PIPE_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(ID, "filtered_pipe"),
+            BlockEntityType.Builder.create(FilteredPipeBlockEntity::new).build(null));
 
     @Override
     public void onInitialize() {

@@ -1,4 +1,4 @@
-package net.kqp.ezpas.block.entity;
+package net.kqp.ezpas.block.entity.pullerpipe;
 
 import net.kqp.ezpas.init.Ezpas;
 
